@@ -11,10 +11,11 @@ function App() {
 	const addPerson = (person) => {
 		setPeople([ ...people, { person, id: Date.now() } ]);
 	};
-	return;
-	<div className='App'>
-		<Form addPerson={addPerson} />
-	</div>;
+	return (
+		<div className='App'>
+			<Form addPerson={addPerson} />
+		</div>
+	);
 }
 
 export default App;
