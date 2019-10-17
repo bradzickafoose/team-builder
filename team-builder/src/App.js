@@ -1,26 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Form from './components/Form;';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [ people, setPeople ] = useState([
+		{ id: 0, name: 'Bradley', email: 'stop@hammer.time', role: 'student' },
+		{ id: 1, name: 'Justin', email: 'justin@reactjs.io', role: 'TL' },
+	]);
+
+	const addPerson = (person) => {
+		setPeople([ ...people, { person, id: Date.now() } ]);
+	};
+	return;
+	<div className='App'>
+		<Form addPerson={addPerson} />
+	</div>;
 }
 
 export default App;
