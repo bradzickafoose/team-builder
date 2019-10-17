@@ -22,6 +22,13 @@ function App() {
 			<Link to='/add'>Add Person</Link>
 			<Route path='/add' render={(props) => <Form submitPerson={addPerson} buttonText='Add Person' />} />
 			<Route exact path='/' render={(props) => people.map((person, index) => <Card key={index} person={person} />)} />
+			<Route
+				path='/edit/:id'
+				render={(props) => {
+					const person = people.find((person) => person.id.toString() === props.match.params.id);
+					return <Form {...props} submitPerson={editPerson} buttonText='Edit Person' />;
+				}}
+			/>
 		</div>
 	);
 }
